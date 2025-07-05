@@ -29,6 +29,15 @@ def main():
     selected_scheme_codes_historical_nav = [data_fetcher.mf_api.get_historical_nav(x) for x in selected_scheme_codes]
     
     if selected_scheme_codes:
-        st.write("Selected Scheme Codes:", selected_scheme_codes)
-        st.write("Scheme Details:", selected_scheme_codes_details)
-        st.write("Scheme Historical Nav:", selected_scheme_codes_historical_nav)
+        # st.write("Selected Scheme Codes:", selected_scheme_codes)
+        # st.write("Scheme Details:", selected_scheme_codes_details)
+        # st.write("Scheme Historical Nav:", selected_scheme_codes_historical_nav)
+        cols = st.columns(len(selected_scheme_codes))
+        for index, code_details in enumerate(selected_scheme_codes_details):
+            with cols[index]:
+                st.subheader(f"Scheme {index + 1}: {code_details['scheme_name']}")
+                st.write(f"Start Date: **{code_details['scheme_start_date']['date']}**")
+                st.write(f"Fund House: **{code_details['fund_house']}**")
+                st.write(f"Scheme Type: **{code_details['scheme_type']}**")
+                st.write(f"Scheme Category: **{code_details['scheme_category']}**")
+
