@@ -1,0 +1,6 @@
+- [ ] update data_fetcher
+  - [ ] get all schemes names and codes to build a serach functionality
+  - [ ] get scheme details from mftool
+  - [ ] get historical nav data
+  - [ ] get performance details for schemes selected
+- [ ] 
