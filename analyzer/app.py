@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 from . import data_fetcher, calculator
 
+st.set_page_config(
+    page_title="Mutual Fund Analyzer",
+    page_icon=":bar_chart:",
+    layout="wide"
+)
+
 def get_selected_scheme_codes(all_schemes):
     selected_scheme_names = st.session_state.get("scheme_selector", [])
     if not selected_scheme_names:
