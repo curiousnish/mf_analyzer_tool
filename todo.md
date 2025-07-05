@@ -3,4 +3,6 @@
   - [x] get scheme details from mftool
   - [x] get historical nav data
   - [ ] get performance details for schemes selected
-- [ ] 
+- [ ] print details for the selected schemes (name, start date, fund house, scheme type, scheme category)
+- [ ] print the latest 5 items from historical nav
+- [ ] make a line chart for the nav for all the selected schemes
