@@ -19,7 +19,9 @@ def main():
     st.multiselect(label="Select Mutual Fund Schemes", options=list(all_schemes.values()), key="scheme_selector")
 
     selected_scheme_codes = get_selected_scheme_codes(all_schemes)
+    selected_scheme_codes_details = [data_fetcher.mf_api.get_scheme_details(x) for x in selected_scheme_codes]
     
     if selected_scheme_codes:
         st.write("Selected Scheme Codes:", selected_scheme_codes)
+        st.write("Scheme Details:", selected_scheme_codes_details)
 
