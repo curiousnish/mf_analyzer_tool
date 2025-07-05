@@ -1,6 +1,5 @@
-def main():
-    print("Hello from mf-analyzer-tool!")
-
+import streamlit as st
+from analyzer.app import main
 
 if __name__ == "__main__":
     main()
