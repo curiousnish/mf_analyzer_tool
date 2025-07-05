@@ -24,7 +24,7 @@ class MutualFundAPI:
     def get_historical_nav(self, scheme_code):
         """Fetches historical NAV data for a given scheme code."""
         try:
-            historical_data = self.mf.get_scheme_historical_nav(scheme_code, as_Dataframe=True)
+            historical_data = self.mf.get_scheme_historical_nav(scheme_code)
             # print(f"Raw historical NAV data for {scheme_code}: {historical_data}") # Removed for cleaner output
             return historical_data
         except Exception as e:
