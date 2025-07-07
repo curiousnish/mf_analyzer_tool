@@ -35,9 +35,10 @@ def main():
         cols = st.columns(len(selected_scheme_codes))
         for index, code_details in enumerate(selected_scheme_codes_details):
             with cols[index]:
-                st.subheader(f"Scheme {index + 1}: {code_details['scheme_name']}")
-                st.write(f"Start Date: **{code_details['scheme_start_date']['date']}**")
-                st.write(f"Fund House: **{code_details['fund_house']}**")
-                st.write(f"Scheme Type: **{code_details['scheme_type']}**")
-                st.write(f"Scheme Category: **{code_details['scheme_category']}**")
+                st.subheader(f"{index + 1}: {code_details['scheme_name']}")
+                with st.expander("See Details"):
+                    st.write(f"Start Date: **{code_details['scheme_start_date']['date']}**")
+                    st.write(f"Fund House: **{code_details['fund_house']}**")
+                    st.write(f"Scheme Type: **{code_details['scheme_type']}**")
+                    st.write(f"Scheme Category: **{code_details['scheme_category']}**")
 
