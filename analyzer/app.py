@@ -1,6 +1,7 @@
+from re import M
 import streamlit as st
 import pandas as pd
-from . import data_fetcher, calculator
+from . import data_fetcher
 
 st.set_page_config(
     page_title="Mutual Fund Analyzer",
@@ -19,14 +20,15 @@ def get_selected_scheme_codes(all_schemes):
 
 def main():
     st.title("Mutual Fund Analyzer")
+    mf_api = data_fetcher.MutualFundAPI()
 
-    all_schemes = data_fetcher.mf_api.get_all_schemes()
+    all_schemes = mf_api.get_all_schemes()
 
     st.multiselect(label="Select Mutual Fund Schemes", options=list(all_schemes.values()), key="scheme_selector")
 
     selected_scheme_codes = get_selected_scheme_codes(all_schemes)
-    selected_scheme_codes_details = [data_fetcher.mf_api.get_scheme_details(x) for x in selected_scheme_codes]
-    selected_scheme_codes_historical_nav = [data_fetcher.mf_api.get_historical_nav(x) for x in selected_scheme_codes]
+    selected_scheme_codes_details = [mf_api.get_scheme_details(x) for x in selected_scheme_codes]
+    selected_scheme_codes_historical_nav = [mf_api.get_historical_nav(x) for x in selected_scheme_codes]
     
     if selected_scheme_codes:
         # st.write("Selected Scheme Codes:", selected_scheme_codes)
